@@ -3,6 +3,9 @@ const postRouter = require('./post')
 const productRouter = require('./product')
 
 function route(app) {
+    app.get('/', (req, res) => {
+        res.send("welcome");
+    })
     app.use('/api/auth', authRouter)
     app.use('/api/posts', postRouter)
     app.use('/api/products', productRouter)
