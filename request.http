@@ -1,0 +1,70 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "Raicy01",
+    "password": "1234"
+}
+
+###
+POST http://localhost:5000/api/auth/login 
+Content-Type: application/json
+
+{
+    "username": "mirai210",
+    "password": "1234"
+}
+
+###
+POST http://localhost:3000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI1OGQzZDIzNzFkZGVmYzdhZjdiODAiLCJpYXQiOjE2NjM0MDUzNzN9.RmggUYgfZAzcak7ih43P4DKmm8HL36bYP6mVA46ynQk
+
+{
+    "title": "my first post",
+    "description": "abc",
+    "url": "google.com",
+    "status": "LEARNING"
+}
+
+###
+GET http://localhost:3000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI0OGM5N2YyZWNlOTdiYjE2MjZlOWIiLCJpYXQiOjE2NjM0MDU3ODd9.81M7h687Zq1TYf0eKz4BacWGCzV1Aio3TQkuhmWnrDQ
+
+###
+PUT http://localhost:3000/api/posts/6324a3d44b30357aa9c3f9d7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI0OGM5N2YyZWNlOTdiYjE2MjZlOWIiLCJpYXQiOjE2NjM0MDU3ODd9.81M7h687Zq1TYf0eKz4BacWGCzV1Aio3TQkuhmWnrDQ
+
+{
+    "title": "vueJs", 
+    "description": "VUE FRONTEND",
+    "url": "vue.org",
+    "status": "LEARNING"
+}
+
+###
+DELETE http://localhost:3000/api/posts/6324a3d44b30357aa9c3f9d7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI0OGM5N2YyZWNlOTdiYjE2MjZlOWIiLCJpYXQiOjE2NjM0MDU3ODd9.81M7h687Zq1TYf0eKz4BacWGCzV1Aio3TQkuhmWnrDQ
+
+###
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+    "productname": "Iphone 6s LikeNew",
+    "memory": ["16GB"],
+    "price":  2300000,
+    "saleoff": 29,
+    "color": ["white", "black"],
+    "productimage": "https://denstore.vn/wp-content/uploads/2021/09/6p-600-400.jpg",
+    "description": "Hiệu năng đỉnh cao đến từ con chip Apple A12",
+    "state": "OUTOFSTOCKING",
+    "firm": "APPLE"
+}
+
+###
+GET http://localhost:5000/api/products/mobile
+
+###
+GET http://localhost:5000/api/products/search/iPhonesadsa
