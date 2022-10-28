@@ -23,7 +23,7 @@ connectDB()
 
 const app = express()
 app.use(express.json()) // can read json data
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true }))
 app.use('/', express.static(__dirname + "/"))
 // router
 route(app)
