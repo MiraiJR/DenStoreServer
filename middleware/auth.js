@@ -1,7 +1,4 @@
 const jwt = require('jsonwebtoken')
-const passport = require('passport')
-const configFB = require('../Config/configLgFb')
-const FacebookStrategy = require('passport-facebook').Strategy
 
 const verifyToken = (req, res, next) => {
     const authheader = req.header('Authorization')
