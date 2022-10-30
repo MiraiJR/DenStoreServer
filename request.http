@@ -28,7 +28,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI1O
 }
 
 ###
-GET http://localhost:3000/api/posts
+GET http://localhost:5000/api/posts
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzI0OGM5N2YyZWNlOTdiYjE2MjZlOWIiLCJpYXQiOjE2NjM0MDU3ODd9.81M7h687Zq1TYf0eKz4BacWGCzV1Aio3TQkuhmWnrDQ
 
 ###
@@ -52,19 +52,44 @@ POST http://localhost:5000/api/products
 Content-Type: application/json
 
 {
-    "productname": "Iphone 6s LikeNew",
-    "memory": ["16GB"],
-    "price":  2300000,
-    "saleoff": 29,
-    "color": ["white", "black"],
-    "productimage": "https://denstore.vn/wp-content/uploads/2021/09/6p-600-400.jpg",
-    "description": "Hiệu năng đỉnh cao đến từ con chip Apple A12",
-    "state": "OUTOFSTOCKING",
-    "firm": "APPLE"
+    "productname": "Apple Watch S8 GPS",
+    "price":  11990000,
+    "saleoff": 0,
+    "color": ["white", "red", "black"],
+    "productimage": [
+        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-1.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-2.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-3.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-do-1.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-do-2.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-do-3.jpg"
+    ],
+    "description": "Thiết kế nhà Apple thì lúc nào cũng đẹp và sang chảnh. Đến với phiên bản Apple Watch S8 GPS 41mm lần này cũng vậy, về cơ bản, thiết kế không quá khác biệt các dòng sản phẩm trước. Bạn vẫn bắt gặp kiểu mặt đồng hồ với khung viền mềm mại bo tròn, ôm sát mặt đồng hồ.",
+    "category": "ĐỒNG HỒ",
+    "state": "STOCKING",
+    "firm": "635d489e9c0ec0bdb0b88931"
 }
 
 ###
-GET http://localhost:5000/api/products/mobile
+GET http://localhost:5000/api/products/635d376b3e4b44f29f616f40
+
+
+###
+GET http://localhost:5000/api/products/category/dien-thoai
 
 ###
 GET http://localhost:5000/api/products/search/iPhonesadsa
+
+### 
+POST http://localhost:5000/api/comments/635d4d60242c2561153a6315
+Content-Type: application/json
+
+{
+    "content": "sản phẩm chất lượng dùng oke lắm shop",
+    "username": "Truong Van Hao",
+    "email": "truongvanhao159@gmail.com",
+    "idproduct": "635d4d60242c2561153a6315"
+}
+
+### 
+GET http://localhost:5000/api/comments/635d4d60242c2561153a6315

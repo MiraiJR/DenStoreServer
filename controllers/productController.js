@@ -1,5 +1,6 @@
 const Product = require("../models/Product")
-const User = require("../models/User")
+const Firm = require("../models/Firm")
+const slugify = require("slugify")
 
 class ProductController {
     //@route POST api/products
@@ -7,7 +8,7 @@ class ProductController {
     //@access private
     async createProduct(req, res) {
         const {productname, memory, price, saleoff, color, productimage, description, state, category, firm} = req.body
-
+        
         try {
             const newProduct = new Product({
                 productname,
@@ -43,30 +44,45 @@ class ProductController {
         }
     }
 
+
+    // @route GET api/products/category/:category
+    // @desc get products following category
+    // @access public
     async getProductsFollowingCategory(req, res) {
         try {
-            let category = ""
+            let products = await Product.find({slugcategory: req.params.category})
             
-            if(req.params.category == "mobile") {
-                category = "ĐIỆN THOẠI"
-            }else if(req.params.category == "ipad") {
-                category = "IPAD"
-            } else if(req.params.category == "watch") {
-                category = "ĐỒNG HỒ"
-            }
-
-            const products = await Product.find({category})
-
             return res.status(200).json({success: true, message: "get products successfully!", data: products})
         } catch (error) {
             return res.status(500).json({success: false, message: "Internal server error"})
         }
     }
 
+    // @route GET api/products/firm/:namefirm
+    // @desc get products following firm
+    // @access public
+    async getProductsFollowFirm(req, res) {
+        try {
+            const nameFirm = req.params.namefirm.split("-")[req.params.namefirm.split("-").length - 1]
+            const firm = await Firm.findOne({name: nameFirm}).exec()
+            const products = await Product.find({firm: firm._id.toHexString()})
+            return res.status(200).json({success: true, message: "get products successfully!", data: products})
+        } catch (error) {
+            return res.status(500).json({success: false, message: "Internal server error"})
+        }
+    }
+
+    // @route GET api/products/search/:datasearch
+    // @desc get products following data search
+    // @access public
     async getProductsFollowingDataSearch(req, res) {
         try {
-            const products = await Product.find({productname: {$regex: `${req.params.datasearch}`}})
-
+            console.log(slugify(req.params.datasearch, {
+                replacement: "-",
+                lower: true,
+                trim: true,
+            }))
+            const products = await Product.find({slug: {$regex: `${req.params.datasearch}`}})
             return res.status(200).json({success: true, message: "get products successfully!", data: products})
         } catch (error) {
             return res.status(500).json({success: false, message: "Internal server error"})
@@ -79,7 +95,7 @@ class ProductController {
     async getProduct(req, res) {
         try {
             const product = await Product.findOne({_id: req.params.id})
-            
+
             if(!product) {
                 return res.status(401).json({success: false, message: "Product is not found"})
             }

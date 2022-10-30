@@ -1,4 +1,6 @@
+const slug = require('mongoose-slug-generator');
 const mongoose = require('mongoose')
+mongoose.plugin(slug)
 const Schema = mongoose.Schema
 
 const ProductSchema = new Schema({
@@ -6,9 +8,12 @@ const ProductSchema = new Schema({
         type: String,
         required: true,
     },
+    slug: {
+        type: String,
+        slug: "productname",
+    },
     memory: {
         type: [String],
-        required: true,
     },
     price: {
         type: Number,
@@ -23,7 +28,7 @@ const ProductSchema = new Schema({
         required: true,
     },
     productimage: {
-        type: String,
+        type: [String],
         required: true,
     },
     description: {
@@ -41,10 +46,14 @@ const ProductSchema = new Schema({
         enum: ['TABLET', 'ĐIỆN THOẠI', 'ĐỒNG HỒ', 'PHỤ KIỆN'],
         default: "ĐIỆN THOẠI",
     },
-    firm: {
+    slugcategory: {
         type: String,
-        required: true,
+        slug: "category",
+    },
+    firm: {
+        type: Schema.Types.ObjectId,
+        ref: 'firms',
     },
 })
 
-module.exports = mongoose.model('Product', ProductSchema)
+module.exports = mongoose.model('products', ProductSchema)
