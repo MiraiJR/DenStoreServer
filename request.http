@@ -52,20 +52,20 @@ POST http://localhost:5000/api/products
 Content-Type: application/json
 
 {
-    "productname": "Apple Watch S8 GPS",
-    "price":  11990000,
+    "productname": "Túi đựng Airpods 3 Native Union Nhựa dẻo",
+    "price":  350000,
     "saleoff": 0,
-    "color": ["white", "red", "black"],
+    "color": ["black", "pink"],
     "productimage": [
-        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-1.jpg",
-        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-2.jpg",
-        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-trang-kem-3.jpg",
-        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-do-1.jpg",
-        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-do-2.jpg",
-        "https://cdn.tgdd.vn/Products/Images/7077/289804/apple-watch-s8-41mm-do-3.jpg"
+        "https://cdn.tgdd.vn/Products/Images/7925/270058/tui-dung-airpods-3-native-union-nhua-deo-xanh-1.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7925/270058/tui-dung-airpods-3-native-union-nhua-deo-xanh-2.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7925/270058/tui-dung-airpods-3-native-union-nhua-deo-xanh-3.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7925/270058/tui-dung-airpods-3-native-union-nhua-deo-1.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7925/270058/tui-dung-airpods-3-native-union-nhua-deo-2.jpg",
+        "https://cdn.tgdd.vn/Products/Images/7925/270058/tui-dung-airpods-3-native-union-nhua-deo-3.jpg"
     ],
-    "description": "Thiết kế nhà Apple thì lúc nào cũng đẹp và sang chảnh. Đến với phiên bản Apple Watch S8 GPS 41mm lần này cũng vậy, về cơ bản, thiết kế không quá khác biệt các dòng sản phẩm trước. Bạn vẫn bắt gặp kiểu mặt đồng hồ với khung viền mềm mại bo tròn, ôm sát mặt đồng hồ.",
-    "category": "ĐỒNG HỒ",
+    "description": "Đặc điểm nổi bậtSản phẩm chuyên dụng cho dòng AirPods 3.Túi đựng nhỏ gọn, ôm sát AirPods bên trong, không chiếm diện tích khi cất giữ.Màu sắc thời thượng, chất liệu nhựa dẻo vừa bền bỉ vừa mềm mại, dẻo dai.Bảo vệ AirPods bên trong không bị bám dính bụi bẩn và trầy xước.",
+    "category": "PHỤ KIỆN",
     "state": "STOCKING",
     "firm": "635d489e9c0ec0bdb0b88931"
 }

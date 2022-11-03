@@ -63,9 +63,15 @@ class ProductController {
     // @access public
     async getProductsFollowFirm(req, res) {
         try {
+            
             const nameFirm = req.params.namefirm.split("-")[req.params.namefirm.split("-").length - 1]
+            const category = req.params.namefirm.slice(0, req.params.namefirm.lastIndexOf("-")) // identify category
+
             const firm = await Firm.findOne({name: nameFirm}).exec()
-            const products = await Product.find({firm: firm._id.toHexString()})
+            const products = await Product.find({
+                firm: firm._id.toHexString(),
+                slugcategory: category,
+            })
             return res.status(200).json({success: true, message: "get products successfully!", data: products})
         } catch (error) {
             return res.status(500).json({success: false, message: "Internal server error"})
@@ -77,12 +83,13 @@ class ProductController {
     // @access public
     async getProductsFollowingDataSearch(req, res) {
         try {
-            console.log(slugify(req.params.datasearch, {
+            const datasearch = slugify(req.params.datasearch, {
                 replacement: "-",
                 lower: true,
                 trim: true,
-            }))
-            const products = await Product.find({slug: {$regex: `${req.params.datasearch}`}})
+            })
+   
+            const products = await Product.find({slug: {$regex: `${datasearch}`}})
             return res.status(200).json({success: true, message: "get products successfully!", data: products})
         } catch (error) {
             return res.status(500).json({success: false, message: "Internal server error"})
