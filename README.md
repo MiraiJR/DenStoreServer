@@ -3,8 +3,7 @@ Language: NODEJS
 Database: MONGODB
 
 #Deploy
-HEROKU APP
-https://server-denstore.herokuapp.com/
+https://denstore-server.onrender.com
 
 # Target
 Create API for client
