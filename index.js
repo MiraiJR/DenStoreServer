@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const moongoose = require('mongoose')
 const route = require('./routes/index')
-
+const cors = require("cors")
 
 const connectDB = async () => {
     try {
@@ -27,6 +27,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', express.static(__dirname + "/"))
 // router
 route(app)
+
+app.use(cors)
 
 // configure port
 const PORT = process.env.PORT || 5000
